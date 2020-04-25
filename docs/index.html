@@ -90,7 +90,7 @@ document.addEventListener('touchstart', function(){
  var sizeup = function(){
  if(count-- > 0){
   if(size < 800){
-   size = size + 50;
+   size = size + 20;
    document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
    }
   }else{
@@ -113,7 +113,7 @@ document.addEventListener('touchend', function(){
  var sizeup = function(){
  if(count-- > 0){
   if(size > 500){
-   size = size - 50;
+   size = size - 20;
    document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
       }
     }else{
