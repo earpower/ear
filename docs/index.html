@@ -39,15 +39,15 @@ user-select: none;
 			-moz-user-select: none;
 			-webkit-user-select: none;
 			-ms-user-select: none;
-			font-size: 500px;
+			font-size: 250px;
 	}
 
   </style>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=0.5,minimum-scale=0.5,maximum-scale=0.5,height=1600px,width=1300px,user-scalable=no">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,height=800px,width=650px,user-scalable=no">
   <title>みみ</title>
   <script type="text/javascript">
-var size = 500;
+var size = 250;
 var id = null;
 window.onload = function(){
 emojiMaker(50)
@@ -67,7 +67,7 @@ function emojiSet(clone) {
     var emojiStyle = emojiClone.style;
     emojiStyle.left = 100 * Math.random() + "%";
     emojiStyle.animationDelay = 8 * Math.random() + "s";
-    emojiStyle.fontSize = ~~(50 * Math.random() + 20) + "px";
+    emojiStyle.fontSize = (~~(50 * Math.random() + 20)) / 2 + "px";
     document.body.appendChild(emojiClone);
     emojiClone.addEventListener("animationend", function() {
         this.parentNode.removeChild(this);
@@ -89,8 +89,8 @@ document.addEventListener('touchstart', function(){
  var count = 100;
  var sizeup = function(){
  if(count-- > 0){
-  if(size < 800){
-   size = size + 20;
+  if(size < 400){
+   size = size + 10;
    document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
    }
   }else{
@@ -99,7 +99,7 @@ document.addEventListener('touchstart', function(){
  }
 
 for( var i=0 ; i < document.getElementsByClassName('emoji').length; i++){
-    document.getElementsByClassName('emoji')[i].style.fontSize = (300) + 'px';
+    document.getElementsByClassName('emoji')[i].style.fontSize = '150px';
 }
 
   if(id != null){
@@ -112,8 +112,8 @@ document.addEventListener('touchend', function(){
  var count = 100;
  var sizeup = function(){
  if(count-- > 0){
-  if(size > 500){
-   size = size - 20;
+  if(size > 250){
+   size = size - 10;
    document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
       }
     }else{
