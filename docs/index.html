@@ -90,7 +90,7 @@
 				var random = Math.floor( Math.random() * emojis.length );
 				return emojis[random];
 			}
-			document.addEventListener('touchstart', function(e){
+			document.addEventListener('mousedown', function(e){
 				var count = 100;
 				var sizeup = function(){
 					if(count-- > 0){
@@ -111,7 +111,25 @@
 				id = setInterval(sizeup, 1);
 				e.preventDefault();
 			}, {passive: false});
-			document.addEventListener('touchend', function(){
+			
+			document.addEventListener('mouseup', function(){
+				var count = 100;
+				var sizeup = function(){
+					if(count-- > 0){
+						if(size > 250){
+							size = size - 10;
+							document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
+						}
+					}else{
+
+					}
+				} 
+				if(id != null){
+					clearInterval(id);
+				}
+				id = setInterval(sizeup, 1);
+			});
+			document.body.addEventListener("mouseleave", function(){
 				var count = 100;
 				var sizeup = function(){
 					if(count-- > 0){
