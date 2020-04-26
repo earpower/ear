@@ -1,66 +1,62 @@
 <html>
- <head>
-  <style>
-html {
-background-color: black;
-width: 100%;
-height: 100%;
-user-select: none;
--moz-user-select: none;
--webkit-user-select: none;
--ms-user-select: none;
-
-}
-.emoji {
-    animation: kaiten 8s linear;
-    color: yellow;
-    display: inline-block;
-    height: 1em;
-    line-height: 1em;
-    position: fixed;
-    top: -1em;
-    z-index: 1000;
-}
-
-@keyframes kaiten {
-    0% {
-        transform:translateY(0) rotateY(0);
-    }
-    100% {
-        transform:translateY(calc(100vh + 0.5em)) rotateY(3600deg);
-    }
-}
-
-	.bigear {
-			position :absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			text-align: center;
-			user-select: none;
-			-moz-user-select: none;
-			-webkit-user-select: none;
-			-ms-user-select: none;
-			font-size: 250px;
-	}
-
-  </style>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,height=800px,width=650px,user-scalable=no">
-  <title>みみ</title>
-	 <script>
-  document.documentElement.addEventListener('touchstart', function (e) {
-  if (e.touches.length >= 2) {e.preventDefault();}
-  }, {passive: false});
-  var t = 0;
-  document.documentElement.addEventListener('touchend', function (e) {
-  var now = new Date().getTime();
-  if ((now - t) < 350){
-    e.preventDefault();
-  }
-  t = now;
-  }, false);
-</script>
+	<head>
+		<style>
+			html {
+				background-color: black;
+				width: 100%;
+				height: 100%;
+				user-select: none;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				touch-action: manipulation;
+			}
+			.emoji {
+				animation: kaiten 8s linear;
+				color: yellow;
+				display: inline-block;
+				height: 1em;
+				line-height: 1em;
+				position: fixed;
+				top: -1em;
+				z-index: 1000;
+			}
+			@keyframes kaiten {
+				0% {
+					transform:translateY(0) rotateY(0);
+				}
+				100% {
+					transform:translateY(calc(100vh + 0.5em)) rotateY(3600deg);
+				}
+			}
+			.bigear {
+				position :absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				text-align: center;
+				user-select: none;
+				-moz-user-select: none;
+				-webkit-user-select: none;
+				-ms-user-select: none;
+				font-size: 250px;
+			}
+		</style>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,height=800px,width=650px,user-scalable=no">
+		<title>みみ</title>
+		<script>
+			document.documentElement.addEventListener('touchstart', function (e) {
+				if (e.touches.length >= 2) {e.preventDefault();}}, {passive: false});
+			var t = 0;
+			document.documentElement.addEventListener('touchend', function (e) {
+				var now = new Date().getTime();
+				if ((now - t) < 350){
+					e.preventDefault();
+				}
+				t = now;
+			}, false);
+		</script>
   <script type="text/javascript">
 var size = 250;
 var id = null;
