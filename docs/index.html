@@ -57,93 +57,97 @@
 				t = now;
 			}, false);
 		</script>
-  <script type="text/javascript">
-var size = 250;
-var id = null;
-window.onload = function(){
-emojiMaker(50)
-}
+		<script type="text/javascript">
+			var size = 250;
+			var id = null;
+			window.onload = function(){
+				emojiMaker(50)
+			}
+			function emojiMaker(n) {
+				var emoji = document.createElement("div");
+				emoji.className = "emoji";
+				for(var i = 0; i < n; i++) {
+					emoji.textContent = getEmoji();
+					emojiSet(emoji);
+				}
+			}
+			function emojiSet(clone) {
+				var emojiClone = clone.cloneNode(true);
+				var emojiStyle = emojiClone.style;
+				emojiStyle.left = 100 * Math.random() + "%";
+				emojiStyle.animationDelay = 8 * Math.random() + "s";
+				emojiStyle.fontSize = (~~(50 * Math.random() + 20)) / 2 + "px";
+				document.body.appendChild(emojiClone);
+				emojiClone.addEventListener("animationend", function() {
+					this.parentNode.removeChild(this);
+					var emoji = document.createElement("div");
+					emoji.className = "emoji";
+					emoji.textContent = getEmoji();
+					emojiSet(emoji);
+				}, false)
+			}
+			function getEmoji(){
+				var emojis = 
+				    [
+					    '👂',
+					    '👂🏻',
+					    '👂🏼',
+					    '👂🏽',
+					    '👂🏾',
+					    '👂🏿',
+					    '耳',
+					    '🦖',
+					    '🦕',
+					    '💔'
+					    ,'💴'
+				    ];
+				var random = Math.floor( Math.random() * emojis.length );
+				return emojis[random];
+			}
+			document.addEventListener('touchstart', function(){
+				var count = 100;
+				var sizeup = function(){
+					if(count-- > 0){
+						if(size < 400){
+							size = size + 10;
+							document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
+						}
+					}else{
 
-   function emojiMaker(n) {
-    var emoji = document.createElement("div");
-    emoji.className = "emoji";
-    for(var i = 0; i < n; i++) {
-emoji.textContent = getEmoji();
-        emojiSet(emoji);
-    }
-}
+					}
+				}
+				for( var i=0 ; i < document.getElementsByClassName('emoji').length; i++){
+					document.getElementsByClassName('emoji')[i].style.fontSize = '150px';
+				}
+				if(id != null){
+					clearInterval(id);
+				}
+				id = setInterval(sizeup, 1);
+			});
+			document.addEventListener('touchend', function(){
+				var count = 100;
+				var sizeup = function(){
+					if(count-- > 0){
+						if(size > 250){
+							size = size - 10;
+							document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
+						}
+					}else{
 
-function emojiSet(clone) {
-    var emojiClone = clone.cloneNode(true);
-    var emojiStyle = emojiClone.style;
-    emojiStyle.left = 100 * Math.random() + "%";
-    emojiStyle.animationDelay = 8 * Math.random() + "s";
-    emojiStyle.fontSize = (~~(50 * Math.random() + 20)) / 2 + "px";
-    document.body.appendChild(emojiClone);
-    emojiClone.addEventListener("animationend", function() {
-        this.parentNode.removeChild(this);
-        var emoji = document.createElement("div");
-        emoji.className = "emoji";
-        emoji.textContent = getEmoji();
-        emojiSet(emoji);
-    }, false)
-}
-function getEmoji(){
-
-var emojis = ['👂', '👂🏻', '👂🏼', '👂🏽', '👂🏾', '👂🏿','耳','🦖','🦕','💔','💴'];
-var random = Math.floor( Math.random() * emojis.length );
-return emojis[random];
-
-}
-
-document.addEventListener('touchstart', function(){
- var count = 100;
- var sizeup = function(){
- if(count-- > 0){
-  if(size < 400){
-   size = size + 10;
-   document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
-   }
-  }else{
-
-  }
- }
-
-for( var i=0 ; i < document.getElementsByClassName('emoji').length; i++){
-    document.getElementsByClassName('emoji')[i].style.fontSize = '150px';
-}
-
-  if(id != null){
-    clearInterval(id);
-  }
-  id = setInterval(sizeup, 1);
-});
-
-document.addEventListener('touchend', function(){
- var count = 100;
- var sizeup = function(){
- if(count-- > 0){
-  if(size > 250){
-   size = size - 10;
-   document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
-      }
-    }else{
-
-    }
-  } 
-   if(id != null){
-    clearInterval(id);
-  }
-  id = setInterval(sizeup, 1);
-});
-
-  </script>
- </head>
- <body>
-  <div class="bigear">
-   <p>
-    👂
-   </p>
-  </div>
- </body>
+					}
+				} 
+				if(id != null){
+					clearInterval(id);
+				}
+				id = setInterval(sizeup, 1);
+			});
+		</script>
+	</head>
+	<body>
+		<div class="bigear">
+			<p>
+				👂
+			</p>
+		</div>
+	</body>
 </html>
