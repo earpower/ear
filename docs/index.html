@@ -65,7 +65,13 @@
 				var emojiClone = clone.cloneNode(true);
 				var emojiStyle = emojiClone.style;
 				emojiStyle.left = 100 * Math.random() + "%";
-				emojiStyle.animationDelay = 8 * Math.random() + "s";
+				var startdelay = 8 * Math.random();
+				emojiStyle.animationDelay =  startdelay + "s";
+				emojiStyle.Visibility = "hidden";
+				var start = function(){
+					emojiStyle.Visibility = "visible";
+				}
+				setTimeout(start, startdelay * 1000);
 				emojiStyle.fontSize = (~~(50 * Math.random() + 20)) / 2 + "px";
 				document.body.appendChild(emojiClone);
 				emojiClone.addEventListener("animationend", function() {
