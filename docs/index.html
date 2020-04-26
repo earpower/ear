@@ -65,7 +65,7 @@
 			function emojiSet(clone) {
 				var emojiClone = clone.cloneNode(true);
 				var emojiStyle = emojiClone.style;
-				emojiStyle.left = 100 * Math.random() + "%";
+				emojiStyle.left = (105 * Math.random() - 2.5) + "%";
 				var startdelay = 8 * Math.random();
 				emojiStyle.animationDelay =  startdelay + "s";
 				emojiStyle.visibility = "hidden";
