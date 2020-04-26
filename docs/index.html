@@ -90,7 +90,7 @@
 				var random = Math.floor( Math.random() * emojis.length );
 				return emojis[random];
 			}
-			document.addEventListener('mousedown', function(e){
+			document.addEventListener('touchstart', function(e){
 				var count = 100;
 				var sizeup = function(){
 					if(count-- > 0){
@@ -112,7 +112,7 @@
 				e.preventDefault();
 			}, {passive: false});
 			
-			document.addEventListener('mouseup', function(){
+			document.addEventListener('touchend', function(){
 				var count = 100;
 				var sizeup = function(){
 					if(count-- > 0){
