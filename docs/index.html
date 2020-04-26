@@ -110,7 +110,7 @@
 				}
 				id = setInterval(sizeup, 1);
 				e.preventDefault();
-			});
+			}, {passive: false});
 			document.addEventListener('touchend', function(){
 				var count = 100;
 				var sizeup = function(){
