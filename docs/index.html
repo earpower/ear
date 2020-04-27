@@ -122,7 +122,7 @@
 				e.preventDefault();
 			}, {passive: false});
 			
-			function small(){
+			var small = function(){
 				var sizeup = function(){
 					if(size > 250){
 						size = size - 10;
@@ -136,8 +136,8 @@
 				}
 				id = setInterval(sizeup, 1);
 			}
-			document.addEventListener('touchend', small());
-			document.addEventListener("touchcancel", small());
+			document.addEventListener('touchend', small);
+			document.addEventListener("touchcancel", small);
 		</script>
 	</head>
 	<body>
