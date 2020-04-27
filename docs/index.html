@@ -108,6 +108,8 @@
 					if(size < 400){
 						size = size + 10;
 						document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
+					}else{
+						clearInterval(id);
 					}
 				}
 				for( var i=0 ; i < document.getElementsByClassName('emoji').length; i++){
