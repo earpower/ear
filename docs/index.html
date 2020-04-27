@@ -104,15 +104,10 @@
 				return emojis[random];
 			}
 			document.addEventListener('touchstart', function(e){
-				var count = 100;
 				var sizeup = function(){
-					if(count-- > 0){
-						if(size < 400){
-							size = size + 10;
-							document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
-						}
-					}else{
-
+					if(size < 400){
+						size = size + 10;
+						document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
 					}
 				}
 				for( var i=0 ; i < document.getElementsByClassName('emoji').length; i++){
@@ -127,40 +122,22 @@
 				e.preventDefault();
 			}, {passive: false});
 			
-			document.addEventListener('touchend', function(){
-				var count = 100;
+			function small(){
 				var sizeup = function(){
-					if(count-- > 0){
-						if(size > 250){
-							size = size - 10;
-							document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
-						}
+					if(size > 250){
+						size = size - 10;
+						document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
 					}else{
-
+						clearInterval(id);
 					}
 				} 
 				if(id != null){
 					clearInterval(id);
 				}
 				id = setInterval(sizeup, 1);
-			});
-			document.addEventListener("touchcancel", function(){
-				var count = 100;
-				var sizeup = function(){
-					if(count-- > 0){
-						if(size > 250){
-							size = size - 10;
-							document.getElementsByClassName('bigear')[0].style.fontSize = (size) + 'px';
-						}
-					}else{
-
-					}
-				} 
-				if(id != null){
-					clearInterval(id);
-				}
-				id = setInterval(sizeup, 1);
-			});
+			}
+			document.addEventListener('touchend', small());
+			document.addEventListener("touchcancel", small());
 		</script>
 	</head>
 	<body>
