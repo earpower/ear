@@ -98,7 +98,8 @@
 					    '🦖',
 					    '🦕',
 					    '💔',
-					    '💴'
+					    '💴',
+					    '💰'
 				    ];
 				var random = Math.floor( Math.random() * emojis.length );
 				return emojis[random];
@@ -121,7 +122,7 @@
 				id = setInterval(sizeup, 1);
 				e.preventDefault();
 			};
-			
+			document.addEventListener('mousedown', big, {passive: false});
 			document.addEventListener('touchstart', big, {passive: false});
 			
 			var small = function(){
@@ -138,6 +139,8 @@
 				}
 				id = setInterval(sizeup, 1);
 			};
+			document.addEventListener('mouseup', small);
+			document.addEventListener('mouseleave', small);
 			document.addEventListener('touchend', small);
 			document.addEventListener("touchcancel", small);
 		</script>
